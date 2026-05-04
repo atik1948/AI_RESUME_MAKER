@@ -1,0 +1,26 @@
+Implement the detailed, step-by-step user flow for an ideal digital CV builder, designed for maximum usability and effectiveness:
+Stage 1: Smart Onboarding & Profile Selection
+User enters name and target job title/industry.
+User selects a profile type: Student/Recent Graduate, Experienced Professional, Career Changer, Academic/Researcher, or Creative/Portfolio-based.
+The system adapts the recommended section order based on this selection (e.g., students see Education and Projects first).
+Stage 2: Guided Information Entry (Modular Sections)
+Contact Information: Simple form for phone, email, LinkedIn, and portfolio/website, with real-time validation and tips.
+Professional Summary/Objective: Text area with tailored prompts and AI-generated examples based on profile type.
+Work Experience: One job at a time, with fields for title, company, location, dates, and a rich text editor for achievement-oriented bullet points. AI suggests action verbs and phrasing. After each entry, users can add another or continue.
+Education: One degree/certification at a time, with optional fields for coursework/honors. Same add-another/continue pattern.
+Skills: Dynamic tag-based input with AI-suggested skills based on the target job. Users can categorize skills (Technical, Languages, Soft Skills).
+Additional Sections: Menu to add Projects, Publications, Volunteer Experience, Certifications, etc., each as modular, repeatable blocks.
+Stage 3: Layout, Formatting, & Customization
+Section Reordering: Drag-and-drop interface for moving sections, with the live preview updating instantly.
+Template Selection: Gallery of professional, ATS-friendly templates. Clicking applies the template to the preview.
+Fine-Tuning: Controls for accent color, font style, and font size, all reflected in real time.
+Stage 4: Final Review & Export
+Full-Screen Preview: Distraction-free mode for reviewing the CV.
+AI-Powered CV Check: Scans for typos, grammar, and weak phrasing, offering inline suggestions and quick fixes.
+Export: One-click download as a high-quality PDF, with options for DOCX or plain text.
+Key UX Principles Applied:
+Progressive disclosure (one section at a time)
+Contextual guidance (tips, examples, AI suggestions)
+Modular, flexible section management (add, edit, delete, reorder)
+Adaptive pathing (personalized flow based on user profile)
+Live, side-by-side preview at all times
