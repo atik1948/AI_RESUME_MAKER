@@ -110,8 +110,9 @@ const MultiStepForm = ({ formState, isPremium, setPremium }) => {
   };
 
   const handleSectionOrderChange = (value) => {
-    setSectionOrder(value);
-    persistCustomization({ sectionOrder: value });
+    const nextOrder = typeof value === 'function' ? value(sectionOrder) : value;
+    setSectionOrder(nextOrder);
+    persistCustomization({ sectionOrder: nextOrder });
   };
 
   React.useEffect(() => {

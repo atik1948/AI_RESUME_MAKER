@@ -89,12 +89,10 @@ const SectionReorder = ({ sectionOrder, setSectionOrder, formData }) => {
     })
   );
 
-const checkSectionHasContent = (sectionId) => {
+  const checkSectionHasContent = (sectionId) => {
     if (!formData) {
-      console.log("formData is undefined or null");
       return false;
     }
-    console.log("Checking content for section:", sectionId, "formData:", formData);
     switch (sectionId) {
       case 'contact':
         return !!(formData.fullName || formData.email || formData.phone);
@@ -103,11 +101,19 @@ const checkSectionHasContent = (sectionId) => {
       case 'education':
         return !!(formData.education && formData.education.length > 0);
       case 'experiences':
+      case 'experience':
         return !!(formData.experiences && formData.experiences.length > 0);
       case 'skills':
         return !!(formData.skills && formData.skills.length > 0);
       case 'projects':
         return !!(formData.projects && formData.projects.length > 0);
+      case 'references':
+        return !!(
+          (Array.isArray(formData.references) && formData.references.length > 0) ||
+          (formData.referencesText && formData.referencesText.trim()) ||
+          formData.reference1Name ||
+          formData.reference2Name
+        );
       default:
         return false;
     }
@@ -115,13 +121,15 @@ const checkSectionHasContent = (sectionId) => {
 
   const handleDragEnd = (event) => {
     const { active, over } = event;
-    if (active.id !== over.id) {
-      setSectionOrder((items) => {
-        const oldIndex = items.findIndex((item) => item.id === active.id);
-        const newIndex = items.findIndex((item) => item.id === over.id);
-        return arrayMove(items, oldIndex, newIndex);
-      });
-    }
+    if (!over || active.id === over.id) return;
+
+    const oldIndex = sectionOrder.findIndex((item) => item.id === active.id);
+    const newIndex = sectionOrder.findIndex((item) => item.id === over.id);
+
+    if (oldIndex < 0 || newIndex < 0) return;
+
+    const newOrder = arrayMove(sectionOrder, oldIndex, newIndex);
+    setSectionOrder(newOrder);
   };
 
   const moveSection = (fromIndex, toIndex) => {
